@@ -1,0 +1,750 @@
+/* Fuente para nuestro proyecto y que esté siempre disponible, incluso si el usuario no la tiene instalada */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Variables CSS globales */
+:root {
+    --padding-container: 100px 0; /* Espaciado para los contenedores */
+    --color-title: #001A49; /* Color base para los títulos */
+}
+
+/* Estilo base para el cuerpo, aplicando la fuente Poppins */
+body {
+    font-family: 'Poppins', sans-serif; /* Fuente primaria */
+}
+
+/* Contenedor principal */
+.container {
+    width: 90%; /* Ancho relativo para adaptarse a la pantalla */
+    max-width: 1200px; /* Ancho máximo */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    overflow: hidden; /* Oculta cualquier contenido desbordante */
+    padding: var(--padding-container); /* Aplica el padding definido en la variable */
+}
+
+/* Imagen de fondo para el hero, ocupa toda la pantalla */
+.hero {
+    width: 100%; /* Ancho completo */
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    min-height: 600px; /* Altura mínima */
+    max-height: 800px; /* Altura máxima */
+    position: relative; /* Posicionamiento relativo para el uso de elementos absolutos */
+    display: grid; /* Usa CSS Grid para organizar el contenido */
+    grid-template-rows: 100px 1fr; /* Define filas para el contenido */
+    color: #fff; /* Color de texto en blanco */
+}
+
+/* Imagen de fondo y clip-path para crear un diseño angular */
+.hero::before {
+    content: ""; /* Genera un elemento vacío */
+    position: absolute; /* Posicionamiento absoluto dentro del hero */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('../Images/balonesBasket.jpg'); /* Gradiente y fondo de imagen */
+    background-size: cover; /* Asegura que la imagen cubra todo el área */
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%); /* Recorta la imagen en una forma personalizada */
+    z-index: -1; /* Envía la imagen al fondo */
+}
+
+/* Estilos para el logotipo dentro de la barra de navegación */
+.nav__logo {
+    display: flex; /* Usa Flexbox para alinear elementos del logo */
+    align-items: center; /* Centra el logo verticalmente */
+}
+
+/* Imagen del logotipo */
+.nav__logo-image {
+    max-width: 15%; /* Limita el tamaño máximo de ancho de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+/* Barra de navegación */
+.nav {
+    --padding-container: 0; /* Elimina el padding global para este elemento */
+    height: 100%; /* Altura completa del contenedor */
+    display: flex; /* Usa Flexbox para organizar los elementos de navegación */
+    align-items: center; /* Alineación vertical central */
+}
+
+/* Estilo del título en la barra de navegación */
+.nav__title {
+    font-weight: 300; /* Establece un grosor de fuente ligero */
+}
+
+/* Enlaces de navegación */
+.nav__link {
+    margin-left: auto; /* Mueve los enlaces al extremo derecho */
+    padding: 0; /* Elimina padding */
+    display: grid; /* Usa grid layout para organización */
+    grid-auto-flow: column; /* Organiza elementos en una sola fila */
+    grid-auto-columns: max-content; /* Ajusta el tamaño de columna según el contenido */
+    gap: 2em; /* Espacio entre cada enlace */
+}
+
+/* Lista de elementos de navegación */
+.nav__items {
+    list-style: none; /* Quita los estilos de lista */
+}
+
+/* Estilo de los enlaces de navegación */
+.nav__links {
+    color: #fff; /* Color blanco para los enlaces */
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+/* Cambia el color de los enlaces al pasar el cursor */
+.nav__links:hover {
+    color: #2091F9; /* Azul claro al pasar el mouse */
+}
+
+/* Menú de navegación para dispositivos móviles */
+.nav__menu {
+    margin-left: auto; /* Alinea el menú a la derecha */
+    cursor: pointer; /* Cambia el cursor para indicar clicabilidad */
+    display: none; /* Oculta el menú por defecto */
+}
+
+/* Imagen de icono en la navegación */
+.nav__img {
+    display: block; /* Asegura que sea un elemento de bloque */
+    width: 30px; /* Ajusta el tamaño de la imagen */
+}
+
+/* Botón de cierre en la navegación */
+.nav__close {
+    display: var(--show, none); /* Controla la visibilidad con la variable CSS */
+}
+
+/* Contenedor de la sección hero */
+.hero__container {
+    max-width: 800px; /* Define un ancho máximo */
+    --padding-container: 0; /* Sobrescribe el padding general */
+    display: grid; /* Utiliza grid layout */
+    grid-auto-rows: max-content; /* Ajusta el tamaño de fila según contenido */
+    align-content: center; /* Centra el contenido verticalmente */
+    gap: 1em; /* Espacio entre elementos */
+    padding-bottom: 100px; /* Espacio inferior adicional */
+    text-align: center; /* Centra el texto */
+}
+
+/* Título principal en la sección hero */
+.hero__title {
+    font-size: 3rem; /* Tamaño de fuente grande */
+}
+
+/* Párrafo en la sección hero */
+.hero__paragraph {
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+/* Botón de llamada a la acción (CTA) */
+.cta {
+    display: inline-block; /* Permite controlar el tamaño y padding */
+    background-color: #2091F9; /* Fondo azul claro */
+    justify-self: center; /* Centra el botón horizontalmente */
+    color: #fff; /* Texto en blanco */
+    text-decoration: none; /* Sin subrayado */
+    padding: 13px 30px; /* Ajusta el padding interno */
+    border-radius: 32px; /* Bordes redondeados */
+}
+
+
+/* Sección "About" */
+
+.about {
+    text-align: center; /* Centra el texto en la sección */
+}
+
+.subtitle {
+    color: var(--color-title); /* Usa la variable global para el color del título */
+    font-size: 2rem; /* Tamaño de fuente para el subtítulo */
+    margin-bottom: 25px; /* Espaciado inferior */
+}
+
+.about__paragraph {
+    line-height: 1.7; /* Ajusta la altura de línea para mejorar la legibilidad */
+}
+
+.about__main {
+    padding-top: 80px; /* Espaciado superior */
+    display: grid; /* Usa grid layout */
+    width: 90%; /* Ancho relativo para adaptarse a la pantalla */
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+    gap: 1em; /* Espacio entre los elementos */
+    overflow: hidden; /* Oculta cualquier contenido desbordante */
+    grid-template-columns: repeat(auto-fit, minmax(260px, auto)); /* Crea columnas adaptables al ancho mínimo de 260px */
+}
+
+.about__icons {
+    display: grid; /* Usa grid layout para organizar los íconos */
+    gap: 1em; /* Espacio entre los íconos */
+    justify-items: center; /* Centra los íconos horizontalmente */
+    width: 260px; /* Ancho fijo para la sección de íconos */
+    overflow: hidden; /* Oculta el desbordamiento */
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+}
+
+.about__icon {
+    width: 40px; /* Tamaño fijo para cada ícono */
+}
+
+/* Sección "Knowledge" */
+
+.knowledge {
+    background-color: #e5e5f7; /* Color de fondo claro */
+    background-image: radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px); /* Crea un fondo de puntos con gradientes radiales */
+    background-size: 20px 20px; /* Tamaño de cada punto en el patrón */
+    background-position: 0 0, 10px 10px; /* Posición de inicio del patrón */
+    overflow: hidden; /* Oculta cualquier contenido desbordante */
+}
+
+.knowledge__container {
+    display: grid; /* Usa grid layout */
+    grid-template-columns: 1fr 1fr; /* Crea dos columnas de igual ancho */
+    gap: 1em; /* Espacio entre los elementos */
+    align-items: center; /* Alinea verticalmente el contenido */
+}
+
+.knowledge__picture {
+    max-width: 600px; /* Ancho máximo para las imágenes */
+}
+
+.knowledge__paragraph {
+    line-height: 1.7; /* Ajusta la altura de línea para mayor legibilidad */
+    margin-bottom: 15px; /* Espaciado inferior */
+}
+
+.knowledge__img {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho de su contenedor */
+    display: block; /* Cambia la imagen a un bloque para evitar espacios adicionales */
+}
+
+/* Sección "Sobre Nosotros" */
+
+.contenedor {
+    width: 90%; /* Ancho relativo para adaptarse al contenedor principal */
+    max-width: 1000px; /* Ancho máximo de 1000px */
+    margin: auto; /* Centra horizontalmente */
+    overflow: hidden; /* Oculta contenido que sobrepasa el contenedor */
+    padding: 52px 0; /* Espaciado superior e inferior */
+}
+
+.sobre-nosotros {
+    text-align: center; /* Centra el texto */
+    font-size: 56px; /* Tamaño de fuente grande para el título */
+    margin-bottom: 10px; /* Espaciado inferior */
+    font-weight: 600; /* Negrita para mayor énfasis */
+}
+
+.slogan {
+    font-size: 24px; /* Tamaño de fuente menor para el slogan */
+    font-weight: 300; /* Fuente ligera */
+    text-align: center; /* Centra el texto */
+    margin-bottom: 24px; /* Espaciado inferior */
+}
+
+.parrafo {
+    margin-bottom: 13px; /* Espaciado inferior */
+    font-weight: 300; /* Fuente ligera */
+    text-align: justify; /* Justifica el texto */
+    line-height: 24px; /* Altura de línea para mejorar la legibilidad */
+    color: rgb(24, 16, 16); /* Color del texto */
+}
+
+/* Imagen de fondo en la sección */
+
+.imagen_fondo {
+    background-image: url(../Images/imgentrenando.jpg); /* Imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Fija la imagen en su posición */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+    height: 32em; /* Altura del contenedor de la imagen */
+    display: flex; /* Usa flexbox para centrar contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    text-align: center; /* Alinea el texto en el centro */
+}
+
+.blanco {
+    color: white; /* Texto en blanco */
+    font-size: 2em; /* Tamaño de fuente grande */
+    font-weight: bold; /* Negrita */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para mejorar la visibilidad */
+}
+
+/* Sección de precios */
+
+.price {
+    text-align: center; /* Centra el texto en la sección */
+}
+
+.price__table {
+    padding-top: 60px; /* Espaciado superior */
+    display: flex; /* Flexbox para organizar los elementos */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias filas */
+    gap: 2.5em; /* Espacio entre los elementos */
+    justify-content: space-evenly; /* Distribuye el espacio de manera uniforme */
+    align-items: center; /* Alinea los elementos en el centro */
+}
+
+.price__element {
+    background-color: #e5e5f7; /* Color de fondo de los elementos */
+    text-align: center; /* Centra el texto */
+    border-radius: 10px; /* Bordes redondeados */
+    width: 330px; /* Ancho fijo */
+    padding: 40px; /* Padding interno */
+    --color-plan: #696871; /* Variable para el color del nombre del plan */
+    --color-price: #1D293F; /* Variable para el color del precio */
+    --bg-cta: #fff; /* Variable para el fondo del botón CTA */
+    --color-cta: #5454D4; /* Variable para el color del texto del botón CTA */
+    --color-items: #696871; /* Variable para el color de los ítems */
+}
+
+.price__element--best {
+    width: 370px; /* Ancho adicional para el mejor plan */
+    padding: 60px 40px; /* Padding mayor para este elemento */
+    background-color: #FF7143; /* Color de fondo distintivo */
+    --color-plan: rgb(255 255 255 / 75%); /* Color claro para el nombre del plan */
+    --color-price: #fff; /* Color blanco para el precio */
+    --bg-cta: #9F3919; /* Fondo del botón CTA */
+    --color-cta: #FFF; /* Texto blanco en el botón CTA */
+    --color-items: #fff; /* Color blanco para los ítems */
+}
+
+.price__name {
+    color: var(--color-plan); /* Usa la variable de color para el nombre del plan */
+    margin-bottom: 15px; /* Espaciado inferior */
+    font-weight: 300; /* Fuente ligera */
+}
+
+.price__price {
+    font-size: 2.5rem; /* Tamaño de fuente grande para el precio */
+    color: var(--color-price); /* Usa la variable de color del precio */
+}
+
+.price__items {
+    margin-top: 35px; /* Espaciado superior */
+    display: grid; /* Usa grid para organizar los ítems */
+    gap: 1em; /* Espacio entre los ítems */
+    font-weight: 300; /* Fuente ligera */
+    font-size: 1.2rem; /* Tamaño de fuente para los ítems */
+    margin-bottom: 50px; /* Espaciado inferior */
+    color: var(--color-items); /* Usa la variable de color para los ítems */
+}
+
+.price__cta {
+    display: block; /* Define el elemento como un bloque para ocupar todo el ancho disponible */
+    padding: 20px 0; /* Añade espacio superior e inferior dentro del botón */
+    border-radius: 10px; /* Redondea las esquinas del botón */
+    text-decoration: none; /* Elimina el subrayado en el texto */
+    background-color: var(--bg-cta); /* Define el color de fondo usando una variable CSS */
+    font-weight: 600; /* Aumenta el grosor del texto */
+    color: var(--color-cta); /* Define el color del texto usando una variable CSS */
+    box-shadow: 0 0 1px rgba(0, 0, 0, .5); /* Aplica una sombra ligera alrededor del botón */
+}
+
+/* Testimony */
+
+.testimony {
+    background-color: #e5e5f7; /* Color de fondo específico para la sección de testimonios */
+}
+
+.testimony__container {
+    display: grid; /* Utiliza una cuadrícula para organizar los elementos dentro de la sección */
+    grid-template-columns: 50px 1fr 50px; /* Define 3 columnas: estrechas en los lados y ancha en el centro */
+    gap: 1em; /* Espacio entre elementos de la cuadrícula */
+    align-items: center; /* Centra los elementos verticalmente */
+}
+
+.testimony__body {
+    display: grid; /* Organiza el contenido en una cuadrícula */
+    grid-template-columns: 1fr max-content; /* Dos columnas: una flexible y otra de tamaño ajustado al contenido */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos en las columnas */
+    align-items: center; /* Centra verticalmente los elementos */
+    gap: 2em; /* Espacio entre los elementos de la cuadrícula */
+    grid-column: 2/3; /* Posiciona el cuerpo del testimonio en la columna central */
+    grid-row: 1/2; /* Posiciona el cuerpo del testimonio en la primera fila */
+    opacity: 0; /* Oculta el elemento inicialmente */
+    pointer-events: none; /* Desactiva los eventos de clic mientras está oculto */
+}
+
+.testimony__body--show {
+    pointer-events: unset; /* Permite la interacción con el contenido cuando es visible */
+    opacity: 1; /* Hace visible el contenido */
+    transition: opacity 1.5s ease-in-out; /* Aplica una transición suave al cambiar la opacidad */
+}
+
+.testimony__img {
+    width: 250px; /* Ancho de la imagen */
+    height: 250px; /* Alto de la imagen */
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    object-fit: cover; /* Ajusta la imagen para que cubra el contenedor sin deformarse */
+    object-position: 50% 30%; /* Centra la imagen en el contenedor */
+}
+
+.testimony__texts {
+    max-width: 700px; /* Define un ancho máximo para el texto */
+}
+
+.testimony__course {
+    background-color: royalblue; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    display: inline-block; /* Se ajusta al contenido */
+    padding: 5px; /* Espaciado interno */
+}
+
+.testimony__arrow {
+    width: 90%; /* Ancho del icono de flecha */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+}
+
+/* Questions */
+
+.questions {
+    text-align: center; /* Centra el texto */
+}
+
+.questions__container {
+    display: grid; /* Utiliza una cuadrícula para el diseño */
+    gap: 2em; /* Espacio entre los elementos */
+    padding-top: 50px; /* Espacio superior */
+    padding-bottom: 100px; /* Espacio inferior */
+}
+
+.questions__padding {
+    padding: 0; /* Sin padding inicial */
+    transition: padding .3s; /* Transición para el cambio de padding */
+    border: 1px solid #5454D4; /* Borde de color púrpura */
+    border-radius: 6px; /* Bordes redondeados */
+}
+
+.questions__padding--add {
+    padding-bottom: 30px; /* Agrega espacio inferior adicional */
+}
+
+.questions__answer {
+    padding: 0 30px 0; /* Espaciado interno izquierdo y derecho */
+    overflow: hidden; /* Oculta el desbordamiento de contenido */
+}
+
+.questions__title {
+    text-align: left; /* Alinea el título a la izquierda */
+    display: flex; /* Flexbox para posicionamiento */
+    font-size: 20px; /* Tamaño de la fuente */
+    padding: 30px 0 30px; /* Espaciado superior e inferior */
+    cursor: pointer; /* Cambia el cursor en hover */
+    color: var(--color-title); /* Color del texto usando variable CSS */
+    justify-content: space-between; /* Espacio entre los elementos flexibles */
+}
+
+.questions__arrow {
+    border-radius: 50%; /* Flecha con bordes redondeados */
+    background-color: var(--color-title); /* Fondo de color usando variable */
+    width: 25px; /* Ancho de la flecha */
+    height: 25px; /* Alto de la flecha */
+    display: flex; /* Flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente el icono de flecha */
+    align-items: center; /* Centra verticalmente el icono de flecha */
+    align-self: flex-end; /* Alinea el icono en la parte inferior */
+    margin-left: 10px; /* Margen izquierdo */
+    transition: transform .3s; /* Transición para efectos de transformación */
+}
+
+.questions__arrow--rotate {
+    transform: rotate(180deg); /* Rota el ícono de flecha 180 grados, útil para indicar expansión o colapso */
+}
+
+.questions__show {
+    text-align: left; /* Alinea el contenido a la izquierda */
+    height: 0; /* Define una altura inicial de 0, oculta el contenido */
+    transition: height .3s; /* Transición suave para cambios en la altura */
+}
+
+.questions__img {
+    display: block; /* Muestra la imagen como un bloque para alineación */
+}
+
+.questions__copy {
+    width: 60%; /* Limita el ancho al 60% del contenedor */
+    margin: 0 auto; /* Centra el elemento horizontalmente */
+    margin-bottom: 30px; /* Espacio inferior */
+}
+
+/* Footer */
+
+.footer {
+    background-color: #1D293F; /* Color de fondo oscuro para el pie de página */
+}
+
+.footer__title {
+    font-weight: 300; /* Texto de peso ligero */
+    font-size: 2rem; /* Tamaño de fuente grande */
+    margin-bottom: 30px; /* Espacio inferior */
+}
+
+.footer__title, .footer__newsletter {
+    color: #fff; /* Color de texto blanco */
+}
+
+.footer__container {
+    display: flex; /* Flexbox para organizar el contenido */
+    justify-content: space-between; /* Distribuye el espacio entre elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    border-bottom: 1px solid #fff; /* Línea divisoria en la parte inferior */
+    padding-bottom: 60px; /* Espacio en la parte inferior */
+}
+
+.nav--footer {
+    padding-bottom: 20px; /* Espacio inferior */
+    display: grid; /* Usa un diseño en cuadrícula */
+    gap: 1em; /* Espacio entre los elementos de la cuadrícula */
+    grid-auto-flow: row; /* Alinea los elementos en una sola columna */
+    height: 100%; /* Ajusta la altura al 100% del contenedor */
+}
+
+.nav__link--footer {
+    display: flex; /* Flexbox para organizar enlaces */
+    margin: 0; /* Sin margen superior o inferior */
+    margin-right: 20px; /* Espacio a la derecha */
+    flex-wrap: wrap; /* Permite que el contenido se ajuste en múltiples líneas */
+}
+
+.footer__inputs {
+    margin-top: 10px; /* Espacio superior */
+    display: flex; /* Flexbox para organizar los elementos de entrada */
+    overflow: hidden; /* Oculta el desbordamiento */
+}
+
+.footer__input {
+    background-color: #fff; /* Fondo blanco para el campo de entrada */
+    height: 50px; /* Altura del campo */
+    display: block; /* Se muestra como un bloque */
+    padding-left: 10px; /* Espacio izquierdo interno */
+    border-radius: 6px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+    outline: none; /* Elimina el borde al hacer foco */
+    border: none; /* Sin borde */
+    margin-right: 16px; /* Espacio a la derecha */
+}
+
+.footer__submit {
+    margin-left: auto; /* Alinea el botón al lado derecho del contenedor */
+    display: inline-block; /* Permite que el botón mantenga sus dimensiones en línea */
+    height: 50px; /* Define la altura del botón */
+    padding: 0 20px; /* Espaciado interno en los lados izquierdo y derecho */
+    background-color: #2091F9; /* Establece el color de fondo en azul */
+    border: none; /* Sin borde */
+    font-size: 1rem; /* Tamaño de la fuente del botón */
+    color: #fff; /* Color del texto en blanco */
+    border-radius: 6px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a puntero en hover */
+}
+
+.footer__copy {
+    --padding-container: 30px 0; /* Variable CSS para espaciado del contenedor */
+    text-align: center; /* Centra el texto */
+    color: #fff; /* Color del texto en blanco */
+}
+
+.footer__copyright {
+    font-weight: 300; /* Establece un peso de fuente ligero */
+}
+
+.footer__icons {
+    margin-bottom: 10px; /* Añade espacio en la parte inferior de los iconos */
+}
+
+.footer__img {
+    width: 30px; /* Define el ancho de las imágenes de iconos en el pie de página */
+}
+
+/* Media queries para pantallas de ancho máximo de 800px */
+
+@media (max-width: 800px) {
+    .nav__menu {
+        display: block; /* Muestra el menú de navegación en pantallas pequeñas */
+    }
+
+    .nav__link--menu {
+        position: fixed; /* Coloca el menú en posición fija */
+        background-color: #000; /* Fondo negro para el menú móvil */
+        top: 0; /* Alinea el menú en la parte superior */
+        left: 0; /* Alinea el menú en la parte izquierda */
+        height: 100%; /* Ocupa toda la altura de la pantalla */
+        width: 100%; /* Ocupa todo el ancho de la pantalla */
+        display: flex; /* Flexbox para organizar los enlaces del menú */
+        flex-direction: column; /* Coloca los enlaces en columna */
+        justify-content: space-evenly; /* Espaciado uniforme entre los enlaces */
+        align-items: center; /* Centra los enlaces horizontalmente */
+        z-index: 100; /* Coloca el menú encima de otros elementos */
+        opacity: 0; /* Oculta el menú inicialmente */
+        pointer-events: none; /* Desactiva la interacción inicialmente */
+        transition: .7s opacity; /* Suaviza la aparición del menú */
+    }
+
+    .nav__link--show {
+        --show: block; /* Muestra el menú al activarse */
+        opacity: 1; /* Hace visible el menú */
+        pointer-events: unset; /* Activa la interacción con el menú */
+    }
+
+    .nav__close {
+        position: absolute; /* Posiciona el botón de cierre relativo al contenedor */
+        top: 30px; /* Ubica el botón de cierre desde la parte superior */
+        right: 30px; /* Ubica el botón de cierre desde la derecha */
+        width: 30px; /* Tamaño del botón de cierre */
+        cursor: pointer; /* Cambia el cursor para indicar que es clicable */
+    }
+
+    .hero__title {
+        font-size: 2.5rem; /* Ajusta el tamaño de la fuente del título para pantallas pequeñas */
+    }
+
+    .about__main {
+        gap: 2em; /* Añade espacio entre elementos en la sección "about" */
+    }
+
+    .about__icons:last-of-type {
+        grid-column: 1/-1; /* Hace que el último ícono ocupe toda la fila en pantallas pequeñas */
+    }
+
+    .knowledge__container {
+        grid-template-columns: 1fr; /* Cambia a una sola columna en pantallas pequeñas */
+        grid-template-rows: max-content 1fr; /* Ajusta las filas */
+        gap: 3em; /* Espacio entre elementos */
+        text-align: center; /* Centra el texto */
+    }
+
+    .knowledge__picture {
+        grid-row: 1/2; /* Coloca la imagen en la primera fila */
+        justify-self: center; /* Centra la imagen horizontalmente */
+    }
+
+    .testimony__container {
+        grid-template-columns: 30px 1fr 30px; /* Ajusta las columnas de la cuadrícula para pantallas pequeñas */
+    }
+
+    .testimony__body {
+        grid-template-columns: 1fr; /* Coloca el cuerpo del testimonio en una sola columna */
+        grid-template-rows: max-content max-content; /* Dos filas para contenido ajustado */
+        gap: 3em; /* Espacio entre filas */
+        justify-items: center; /* Centra los elementos horizontalmente */
+    }
+
+    .testimony__img {
+        width: 200px; /* Reduce el ancho de la imagen en pantallas pequeñas */
+        height: 200px; /* Reduce la altura de la imagen */
+    }
+
+    .questions__copy {
+        width: 100%; /* Ancho completo para la sección de preguntas */
+    }
+
+    .footer__container {
+        flex-wrap: wrap; /* Permite que los elementos del pie de página se ajusten en línea */
+    }
+
+    .nav--footer {
+        width: 100%; /* Ancho completo para la navegación en el pie de página */
+        justify-items: center; /* Centra los elementos */
+    }
+
+    .nav__link--footer {
+        width: 100%; /* Ancho completo para los enlaces del pie de página */
+        justify-content: space-evenly; /* Espaciado uniforme entre los enlaces */
+        margin: 0; /* Elimina el margen */
+    }
+
+    .footer__form {
+        width: 100%; /* Ancho completo para el formulario en el pie de página */
+        justify-content: space-evenly; /* Espaciado uniforme en el formulario */
+    }
+
+    .footer__input {
+        flex: 1; /* Ocupa todo el ancho disponible para el input */
+    }
+}
+
+/* Media queries para pantallas con un ancho máximo de 600px */
+
+@media (max-width: 600px) {
+    .hero__title {
+        font-size: 2rem; /* Reduce el tamaño de la fuente del título principal en la sección hero */
+    }
+
+    .hero__paragraph {
+        font-size: 1rem; /* Reduce el tamaño de la fuente del párrafo en la sección hero */
+    }
+
+    .subtitle {
+        font-size: 1.8rem; /* Ajusta el tamaño de la fuente del subtítulo */
+    }
+
+    .price__element {
+        width: 90%; /* Ajusta el ancho del elemento de precio para que ocupe el 90% del contenedor */
+    }
+
+    .price__element--best {
+        width: 90%; /* Ajusta el ancho del mejor elemento de precio */
+        /* padding: 40px; */ /* Comentado: ajusta el padding si es necesario */
+    }
+
+    .price__price {
+        font-size: 2rem; /* Reduce el tamaño de la fuente para los precios */
+    }
+
+    .testimony {
+        --padding-container: 60px 0; /* Ajusta el padding en la sección de testimonios */
+    }
+
+    .testimony__container {
+        grid-template-columns: 28px 1fr 28px; /* Ajusta las columnas de la cuadrícula para la disposición del contenedor */
+        gap: .9em; /* Reduce el espacio entre columnas en la sección de testimonios */
+    }
+
+    .testimony__arrow {
+        width: 100%; /* Amplía la flecha al 100% del contenedor */
+    }
+
+    .testimony__course {
+        margin-top: 15px; /* Añade margen superior al curso en la sección de testimonios */
+    }
+
+    .questions__title {
+        font-size: 1rem; /* Reduce el tamaño de la fuente del título en la sección de preguntas */
+    }
+
+    .footer__title {
+        justify-self: start; /* Alinea el título del pie de página al principio */
+        margin-bottom: 15px; /* Reduce el margen inferior */
+    }
+
+    .nav--footer {
+        padding-bottom: 60px; /* Aumenta el padding en la parte inferior de la navegación en el pie de página */
+    }
+
+    .nav__link--footer {
+        justify-content: space-between; /* Distribuye uniformemente los enlaces del pie de página */
+    }
+
+    .footer__inputs {
+        flex-wrap: wrap; /* Permite que los elementos del formulario en el pie de página se ajusten en línea */
+    }
+
+    .footer__input {
+        flex-basis: 100%; /* Expande el input a todo el ancho del contenedor */
+        margin: 0; /* Elimina márgenes laterales */
+        margin-bottom: 16px; /* Añade espacio inferior entre los inputs */
+    }
+
+    .footer__submit {
+        margin-right: auto; /* Alinea el botón de envío hacia la derecha */
+        margin-left: 0; /* Elimina margen izquierdo */
+
+        /* 
+        margin: 0;
+        width: 100%;
+        */ /* Opcional: ajusta el margen y el ancho al 100% si es necesario */
+    }
+}

@@ -1,0 +1,121 @@
+/* Elimina el padding y margen predeterminados de todos los elementos */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* Configura el cuerpo de la página para centrado de contenido mediante Flexbox */
+body {
+  display: flex; /* Aplica el modelo de Flexbox para alineación de elementos */
+  align-items: center; /* Centra los elementos verticalmente */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  height: 100vh; /* Establece la altura al 100% de la ventana de visualización */
+  background: #161616; /* Define un color de fondo oscuro para el cuerpo */
+}
+
+/* Estilo para el contenedor del menú */
+.menu {
+  position: relative; /* Posiciona el menú de manera relativa para que los elementos dentro puedan posicionarse absolutamente */
+  width: 260px; /* Establece el ancho del menú */
+  height: 260px; /* Establece la altura del menú */
+  display: flex; /* Aplica el modelo de Flexbox para centrar los elementos en el contenedor */
+  align-items: center; /* Centra los elementos verticalmente en el contenedor */
+  justify-content: center; /* Centra los elementos horizontalmente en el contenedor */
+}
+
+/* Estilo para los elementos de la lista dentro del menú */
+.menu li {
+  position: absolute; /* Posiciona los elementos absolutamente en relación con el contenedor .menu */
+  left: 0; /* Coloca los elementos en el borde izquierdo del contenedor */
+  list-style: none; /* Elimina los estilos de lista predeterminados */
+  transform: rotate(0deg) translateX(100px); /* Rota y traslada los elementos en su posición inicial */
+  transform-origin: 130px; /* Establece el punto de rotación a 130px de distancia */
+  transition: 0.5s; /* Añade una transición suave para los cambios en la transformación */
+  transition-delay: calc(0.1s * var(--i)); /* Aplica un retraso progresivo en la animación basado en el índice de cada elemento */
+}
+
+/* Define la transformación de rotación de los elementos de la lista cuando el menú tiene la clase "active" */
+.menu.active li {
+  transform: rotate(calc(360deg / 8 * var(--i))); /* Distribuye los elementos en círculo al activar la clase "active" */
+}
+
+/* Estilo para los enlaces dentro de los elementos de lista del menú */
+.menu a {
+  display: flex; /* Usa Flexbox para alinear el contenido dentro de cada enlace */
+  align-items: center; /* Centra verticalmente el contenido dentro del enlace */
+  justify-content: center; /* Centra horizontalmente el contenido dentro del enlace */
+  width: 60px; /* Define el ancho del enlace */
+  height: 60px; /* Define la altura del enlace */
+  text-decoration: none; /* Elimina el subrayado predeterminado en los enlaces */
+  font-size: 22px; /* Establece el tamaño de fuente del texto dentro del enlace */
+  border-radius: 50%; /* Da forma circular a los enlaces */
+  transform: rotate(calc(360deg / -8 * var(--i))); /* Contrarresta la rotación del enlace para que el texto esté en su orientación correcta */
+  transition: 1s; /* Aplica una transición suave para el cambio de estilo en el enlace */
+  color: transparent; /* Hace que el texto dentro del enlace sea inicialmente transparente */
+  transition-delay: 0.5s; /* Añade un pequeño retraso en la transición del enlace */
+  filter: drop-shadow(0 0 2px var(--clr)); /* Añade un efecto de sombra en los enlaces basado en el color de la variable CSS */
+}
+
+/* Cambia el color del texto en los enlaces al activarse el menú */
+.menu.active a {
+  color: var(--clr); /* Aplica el color definido en la variable CSS */
+}
+
+/* Estilo antes del contenido de los enlaces, usado para crear efectos visuales */
+.menu a::before {
+  content: ""; /* Genera un elemento vacío antes del contenido del enlace */
+  position: absolute; /* Posiciona el elemento de forma absoluta */
+  width: 20px; /* Ancho inicial del efecto */
+  height: 2px; /* Altura inicial del efecto */
+  border-radius: 2px; /* Da bordes redondeados al elemento */
+  background: var(--clr); /* Aplica el color definido en la variable CSS */
+  transform: rotate(calc(90deg * var(--i))) translate(0, 25px); /* Rota y posiciona el elemento antes del enlace */
+  transition: width 0.5s, height 0.5s, transform 0.5s; /* Establece transiciones para cambiar el tamaño y posición */
+  transition-delay: 0.5s, 1s, 1.5s; /* Configura los retrasos para las transiciones */
+}
+
+/* Cambia el estilo del elemento ::before cuando el menú está activo */
+.menu.active a::before {
+  width: 50px; /* Ajusta el ancho del efecto */
+  height: 50px; /* Ajusta la altura del efecto */
+  background: #161616; /* Cambia el color de fondo del efecto */
+  border: 2px solid var(--clr); /* Añade un borde de color alrededor */
+  transform: rotate(calc(0 * var(--i))); /* Elimina la rotación del efecto */
+  transition: transform 0.5s, height 0.5s, width 0.5s; /* Define transiciones para los cambios */
+  transition-delay: 0.5s, 1.5s, 1.5s; /* Configura los retrasos de las transiciones */
+  border-radius: 10px; /* Redondea más el elemento */
+  filter: drop-shadow(0 0 5px var(--clr)); /* Añade un efecto de sombra en el borde */
+  rotate: 135deg; /* Rota el elemento 135 grados */
+}
+
+/* Cambia el fondo del ::before en los enlaces al pasar el mouse cuando el menú está activo */
+.menu.active li:hover a::before {
+  background: var(--clr); /* Cambia el color de fondo del efecto a la variable CSS */
+}
+
+/* Cambia el color de los iconos dentro de los enlaces al pasar el mouse en el menú activo */
+.menu.active li:hover a ion-icon {
+  color: #161616; /* Cambia el color del icono a un tono oscuro */
+}
+
+/* Estilo para el botón de alternancia del menú */
+.menuToggle {
+  position: absolute; /* Posiciona el botón de forma absoluta en el contenedor */
+  width: 60px; /* Ancho del botón */
+  height: 60px; /* Altura del botón */
+  color: #fff; /* Color del ícono del botón */
+  display: flex; /* Usa Flexbox para centrar el contenido del botón */
+  align-items: center; /* Centra verticalmente el ícono dentro del botón */
+  justify-content: center; /* Centra horizontalmente el ícono dentro del botón */
+  z-index: 100; /* Asigna una prioridad de capa para mantener el botón sobre otros elementos */
+  border-radius: 50%; /* Da forma circular al botón */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  font-size: 32px; /* Tamaño de fuente del ícono del botón */
+  transition: 1.5s; /* Aplica una transición suave para los cambios en el botón */
+}
+
+/* Rota el botón de alternancia del menú cuando el menú está activo */
+.menu.active .menuToggle {
+  transform: rotate(315deg); /* Gira el botón 315 grados */
+}
+

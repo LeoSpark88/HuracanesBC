@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" /> <!-- Define la codificación de caracteres -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Configura el viewport para dispositivos móviles -->
+  <title>Huracanes Medellín</title> <!-- Título de la página -->
+  <!-- Link to the external CSS file for styling -->
+  <link rel="stylesheet" href="./BotonStyle.css" /> <!-- Vincula el archivo CSS externo para estilos -->
+  <link rel="shortcut icon" href="./Favicon.png" type="image/x-icon"> <!-- Icono de la pestaña del navegador -->
+  <!-- jQuery library for DOM manipulation -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Biblioteca jQuery para manipulación del DOM -->
+  <!-- Link to the external JavaScript file for additional scripts -->
+  <script src="js/scripts.js"></script> <!-- Vincula el archivo JavaScript externo para scripts adicionales -->
+</head>
+
+<body>
+
+  <!-- Icon menu container -->
+  <ul class="menu"> <!-- Contenedor del menú de iconos -->
+    <!-- Menu toggle button -->
+    <div class="menuToggle"><ion-icon name="add-outline"></ion-icon></div> <!-- Botón para alternar el menú -->
+  
+    <!-- Menu items with icons and labels -->
+    <li style="--i: 0; --clr: #ff2972"> <!-- Primer ítem del menú -->
+      <a href="https://wa.me/3197465311?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20estoy%20interesado%20en%20recibir%20m%C3%A1s%20informaci%C3%B3n%20del%20Club%20Deportivo%20Huracanes%20Medell%C3%ADn"><ion-icon name="mail-outline"></ion-icon></a> <!-- Enlace para contacto -->
+    </li>
+  
+    <li style="--i: 2; --clr: #04fc43"> <!-- Segundo ítem del menú -->
+      <a href="../PaginaSinTodo/index.html"><ion-icon name="home-outline"></ion-icon></a> <!-- Enlace a la página de inicio -->
+    </li>
+  
+    <li style="--i: 4; --clr: #00b0fe"> <!-- Tercer ítem del menú -->
+      <a href="../registro/Registro/index.html"><ion-icon name="person-outline"></ion-icon></a> <!-- Enlace a perfil (aún no definido) -->
+    </li>
+  
+    <li style="--i: 6; --clr: #a529ff"> <!-- Cuarto ítem del menú -->
+      <a href="../NewBlog/index.html"><ion-icon name="videocam-outline"></ion-icon></a> <!-- Enlace al blog -->
+    </li>
+
+  </ul>
+  
+  <!-- JavaScript code to handle menu toggle and hover sounds -->
+  <script>
+    $(document).ready(function() { // Espera a que el documento esté listo
+      var toggleSound = $("#toggleSound")[0]; // Obtiene el sonido de alternar menú
+      var openSound = $("#openSound")[0]; // Obtiene el sonido de abrir menú
+      var hoverSound = $("#hoverSound")[0]; // Obtiene el sonido de hover (sobre) en los enlaces
+
+      let menuToggle = document.querySelector(".menuToggle"); // Selecciona el botón de alternar menú
+      let menu = document.querySelector(".menu"); // Selecciona el menú
+
+      menuToggle.onclick = function () { // Función que se ejecuta al hacer clic en el botón de menú
+        menu.classList.toggle("active"); // Alterna la clase 'active' en el menú
+        toggleSound.currentTime = 0; // Reinicia el audio para que inicie desde el principio
+        toggleSound.play(); // Reproduce el sonido de alternar
+        if (menu.classList.contains("active")) { // Si el menú tiene la clase 'active'
+          openSound.currentTime = 0; // Reinicia el audio para que inicie desde el principio
+          openSound.play(); // Reproduce el sonido de abrir
+        }
+      };
+
+      $("a").mouseenter(function() { // Función que se ejecuta al pasar el mouse sobre un enlace
+        hoverSound.currentTime = 0; // Reinicia el audio para que inicie desde el principio
+        hoverSound.play(); // Reproduce el sonido de hover
+      });
+    });
+  </script>
+
+  <!-- Ionicons for menu icons -->
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script> <!-- Script para los iconos de Ionicons en módulo -->
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script> <!-- Script para los iconos de Ionicons sin módulo -->
+
+</body>
+</html>
