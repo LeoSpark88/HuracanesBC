@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios - Gestor de Baloncesto</title>
+    <link rel="stylesheet" href="../horario/stayle2.css"> <!-- Vincula el archivo CSS para estilos -->
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.php">Inicio</a></li> <!-- Enlace a la página de inicio -->
+                <li><a href="users.html">Usuarios</a></li> <!-- Enlace a la gestión de usuarios -->
+                <li><a href="training.html">Entrenamientos</a></li> <!-- Enlace a la gestión de entrenamientos -->
+                <li><a href="matches.html">Partidos</a></li> <!-- Enlace a la gestión de partidos -->
+            </ul>
+            <ul>
+                <li><a href="../Registro/logout.php">Cerrar sesión</a></li> <!-- Enlace para cerrar sesión -->
+            </ul>
+        </nav>
+        <main>
+            <h2>Usuarios Registrados</h2>
+            <table id="usersTable">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Posición</th>
+                    <th>Altura</th>
+                    <th>Acciones</th>
+                </tr>
+            </table>
+        </main>
+    </div>
+    <script>
+        // Realiza una solicitud para obtener los usuarios desde el servidor
+        fetch('users.php')
+            .then(response => response.json()) // Convierte la respuesta a formato JSON
+            .then(data => {
+                const table = document.getElementById('usersTable'); // Obtiene la tabla de usuarios
+                data.forEach(user => {
+                    const row = table.insertRow(); // Inserta una nueva fila en la tabla
+                    // Llena las celdas con los datos del usuario
+                    row.insertCell(0).textContent = user.nombre_completo; // Nombre completo
+                    row.insertCell(1).textContent = user.correo_electronico; // Email
+                    row.insertCell(2).textContent = user.posicion; // Posición
+                    row.insertCell(3).textContent = user.altura + ' m'; // Altura con unidad
+
+                    const actionsCell = row.insertCell(4); // Celda para las acciones
+                    
+                    // Botón de eliminar
+                    const deleteLink = document.createElement('a'); // Crea un enlace para eliminar
+                    deleteLink.href = `users.php?delete=${user.id}`; // URL para eliminar el usuario
+                    deleteLink.textContent = 'Eliminar'; // Texto del enlace
+                    deleteLink.onclick = function(event) {
+                        event.preventDefault(); // Prevenir la acción por defecto
+                        const confirmDelete = confirm("¿Estás seguro de que deseas eliminar este usuario?"); // Confirmación de eliminación
+                        if (confirmDelete) {
+                            window.location.href = deleteLink.href; // Redirige a la URL de eliminación
+                        }
+                    };
+                    actionsCell.appendChild(deleteLink); // Añade el enlace a la celda
+
+                    // Espacio entre botones
+                    actionsCell.appendChild(document.createTextNode(' | '));
+
+                    // Botón de editar
+                    const editLink = document.createElement('a'); // Crea un enlace para editar
+                    editLink.href = `edit_user.html?id=${user.id}`; // URL para editar el usuario
+                    editLink.textContent = 'Editar'; // Texto del enlace
+                    actionsCell.appendChild(editLink); // Añade el enlace a la celda
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error); // Manejo de errores
+            });
+    </script>
+</body>
+</html>

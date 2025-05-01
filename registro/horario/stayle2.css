@@ -1,0 +1,238 @@
+/* Estilo para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif; /* Tipografía del cuerpo */
+    line-height: 1.6; /* Altura de línea para mejorar la legibilidad */
+    margin: 0; /* Sin margen en el cuerpo */
+    padding: 0; /* Sin padding en el cuerpo */
+    background-color: #f4f4f4; /* Color de fondo general */
+}
+
+/* Contenedor principal para centrar el contenido */
+.container {
+    width: 80%; /* Ancho del contenedor */
+    margin: auto; /* Centrar el contenedor */
+    overflow: hidden; /* Ocultar el desbordamiento */
+    padding: 20px; /* Padding interno del contenedor */
+}
+
+/* Estilo para el encabezado */
+header {
+    background: #35424a; /* Color de fondo del encabezado */
+    color: #ffffff; /* Color del texto del encabezado */
+    padding-top: 30px; /* Espacio en la parte superior del encabezado */
+    min-height: 70px; /* Altura mínima del encabezado */
+    border-bottom: #e8491d 3px solid; /* Borde inferior del encabezado */
+}
+
+/* Estilo para el título del encabezado */
+header h1 {
+    margin: 0; /* Sin margen */
+    text-align: center; /* Centrar el texto */
+}
+
+/* Estilo para la barra de navegación */
+nav {
+    background: #2A2B32; /* Color de fondo del menú */
+    color: #ffffff; /* Color del texto en la navegación */
+}
+
+/* Estilo para la lista en la navegación */
+nav ul {
+    padding: 0; /* Sin padding */
+    list-style: none; /* Sin estilo de lista */
+}
+
+/* Estilo para cada elemento de la lista en la navegación */
+nav li {
+    display: inline; /* Mostrar elementos en línea */
+    padding: 0 20px; /* Espaciado horizontal entre elementos */
+}
+
+/* Estilo para los enlaces en la navegación */
+nav a {
+    color: #ffffff; /* Color del texto de los enlaces */
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    font-size: 18px; /* Tamaño de fuente de los enlaces */
+}
+
+/* Estilo para el contenido principal */
+main {
+    padding: 20px 0; /* Espacio en la parte superior e inferior */
+}
+
+/* Estilo para las tablas */
+table {
+    width: 100%; /* Ancho completo de la tabla */
+    border-collapse: collapse; /* Colapsar bordes de la tabla */
+    margin-top: 20px; /* Espaciado superior de la tabla */
+}
+
+/* Estilo para los bordes de la tabla y las celdas */
+table, th, td {
+    border: 1px solid #000000; /* Color de borde negro */
+}
+
+/* Estilo para las celdas de encabezado y de datos */
+th, td {
+    text-align: left; /* Alinear texto a la izquierda */
+    padding: 12px; /* Aumentar el padding para mejor legibilidad */
+}
+
+/* Estilo para las celdas de encabezado */
+th {
+    background-color: #35424a; /* Color de fondo de los encabezados */
+    color: rgb(255, 255, 255); /* Color del texto en los encabezados */
+}
+
+/* Estilo para las celdas de datos */
+td {
+    color: #000000; /* Color del texto dentro de las celdas */
+}
+
+/* Estilo para filas pares de la tabla */
+tr:nth-child(even) {
+    background-color: #e7f3ff; /* Color de fondo para filas pares */
+}
+
+/* Estilo para filas impares de la tabla */
+tr:nth-child(odd) {
+    background-color: #ffffff; /* Color de fondo para filas impares */
+}
+
+/* Estilo para formularios */
+form {
+    background: #fff; /* Color de fondo del formulario */
+    padding: 20px; /* Espaciado interno del formulario */
+    margin-top: 20px; /* Espaciado superior del formulario */
+    border-radius: 5px; /* Bordes redondeados para el formulario */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para el formulario */
+}
+
+/* Estilo para los inputs y selectores */
+input[type="text"], input[type="email"], input[type="number"], input[type="date"], input[type="time"], select {
+    width: 100%; /* Ancho completo para inputs y selects */
+    padding: 10px; /* Aumentar el padding para mejor usabilidad */
+    margin: 5px 0 20px 0; /* Margen para espaciado vertical */
+    display: inline-block; /* Mostrar en línea con características de bloque */
+    border: 1px solid #1668ff; /* Borde de color azul */
+    box-sizing: border-box; /* Incluir padding y borde en el ancho total */
+    border-radius: 4px; /* Bordes redondeados para los inputs */
+}
+
+
+/* Estilo para el botón de envío */
+input[type="submit"] {
+    background-color: #4CAF50; /* Color de fondo del botón */
+    color: rgb(255, 255, 255); /* Color del texto del botón */
+    padding: 14px 20px; /* Espaciado interno del botón */
+    margin: 8px 0; /* Margen superior e inferior */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambiar cursor a puntero */
+    width: 100%; /* Ancho completo del botón */
+    border-radius: 4px; /* Bordes redondeados para el botón */
+}
+
+/* Efecto al pasar el mouse sobre el botón de envío */
+input[type="submit"]:hover {
+    opacity: 0.8; /* Efecto de opacidad para indicar interacción */
+}
+
+/* Contenedor principal para usar flexbox */
+.container {
+    display: flex; /* Activar el modelo de flexbox */
+    height: auto; /* Ajustar altura al contenido */
+}
+
+/* Estilo para la barra de navegación */
+nav {
+    width: 260px; /* Ancho fijo para el menú */
+    background-color: #202123; /* Color de fondo del menú */
+    color: white; /* Color del texto en el menú */
+    padding: 10px; /* Espacio interno del menú */
+    display: flex; /* Activar flexbox en el menú */
+    flex-direction: column; /* Colocar elementos en columna */
+    justify-content: space-between; /* Espacio entre los elementos */
+}
+
+/* Estilo para las listas dentro del menú */
+nav ul {
+    list-style-type: none; /* Sin estilo de lista */
+    padding: 0; /* Sin padding */
+    margin: 0; /* Sin margen */
+}
+
+/* Primer conjunto de listas crecerá para ocupar el espacio disponible */
+nav ul:first-child {
+    flex-grow: 1; /* Permitir que esta lista crezca */
+}
+
+/* Estilo para los elementos de la lista del menú */
+nav ul li {
+    margin-bottom: 10px; /* Espaciado inferior entre elementos de la lista */
+}
+
+/* Estilo para los enlaces en el menú */
+nav ul li a {
+    color: white; /* Color del texto de los enlaces */
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    display: block; /* Mostrar como bloque para que ocupe todo el ancho */
+    padding: 10px; /* Espaciado interno para los enlaces */
+    border-radius: 5px; /* Bordes redondeados para los enlaces */
+    transition: background-color 0.3s; /* Efecto de transición para el fondo */
+}
+
+/* Efecto al pasar el mouse sobre los enlaces del menú */
+nav ul li a:hover {
+    background-color: #2A2B32; /* Color de fondo al pasar el mouse */
+}
+
+/* Estilo para el contenido principal */
+main {
+    flex-grow: 1; /* Permitir que el main crezca para ocupar espacio */
+    padding: 20px; /* Espaciado interno del main */
+    background-color: #343541; /* Color de fondo del main */
+    color: rgb(255, 255, 255); /* Color del texto en el main */
+}
+
+/* Estilo para el enlace de cerrar sesión */
+nav ul:last-child li a {
+    background-color: #e8491d; /* Color de fondo para el enlace de cerrar sesión */
+    padding: 10px; /* Espaciado interno del enlace */
+    border-radius: 5px; /* Bordes redondeados para el enlace */
+    text-align: center; /* Centrar texto en el enlace */
+}
+
+/* Efecto al pasar el mouse sobre el enlace de cerrar sesión */
+nav ul:last-child li a:hover {
+    background-color: #c6391a; /* Color de fondo al pasar el mouse para el enlace de cerrar sesión */
+}
+
+/* Estilo adicional para mejorar la legibilidad de los encabezados */
+h2 {
+    color: #ffffff; /* Color del texto de los encabezados */
+    margin-top: 20px; /* Margen superior para los encabezados */
+}
+
+/* Estilo para los párrafos */
+p {
+    color: #ffffff; /* Color del texto de los párrafos */
+}
+
+/* Estilo para los mensajes de error o éxito */
+.message {
+    padding: 10px; /* Espaciado interno del mensaje */
+    margin: 10px 0; /* Margen superior e inferior */
+    border-radius: 5px; /* Bordes redondeados para el mensaje */
+}
+
+/* Estilo para mensajes de éxito */
+.success {
+    background-color: #d4edda; /* Color de fondo para mensajes de éxito */
+    color: #155724; /* Color del texto para mensajes de éxito */
+}
+
+/* Estilo para mensajes de error */
+.error {
+    background-color: #f8d7da; /* Color de fondo para mensajes de error */
+    color: #721c24; /* Color del texto para mensajes de error */
+}

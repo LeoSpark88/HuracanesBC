@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Establece el conjunto de caracteres a UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuración para el diseño responsivo -->
+    <title>Gestión de Partidos - Gestor de Baloncesto</title> <!-- Título de la página -->
+    <link rel="stylesheet" href="../horario/stayle2.css"> <!-- Vincula el archivo CSS para el estilo -->
+</head>
+<body>
+    <div class="container"> <!-- Contenedor principal -->
+       
+        <nav> <!-- Barra de navegación -->
+            <ul> <!-- Lista de enlaces de navegación -->
+                <li><a href="index.php">Inicio</a></li> <!-- Enlace a la página de inicio -->
+                <li><a href="users.php">Mi Perfil</a></li> <!-- Enlace a la página de perfil del usuario -->
+                <li><a href="training.html">Entrenamientos</a></li> <!-- Enlace a la página de entrenamientos -->
+                <li><a href="matches.html">Partidos</a></li> <!-- Enlace a la página de partidos -->
+            </ul>
+            <ul> <!-- Lista de enlaces de cierre de sesión -->
+                <li><a href="../Registro/logout.php">Cerrar sesión</a></li> <!-- Enlace para cerrar sesión -->
+            </ul>
+        </nav>
+        
+        <main> <!-- Sección principal de contenido -->
+            <h2>Partidos Programados</h2> <!-- Título de la sección -->
+            <table id="matchesTable"> <!-- Tabla para mostrar los partidos programados -->
+                <tr>
+                    <th>Lugar</th> <!-- Encabezado de la columna "Lugar" -->
+                    <th>Fecha</th> <!-- Encabezado de la columna "Fecha" -->
+                    <th>Hora</th> <!-- Encabezado de la columna "Hora" -->
+                    <th>Categoría</th> <!-- Encabezado de la columna "Categoría" -->
+                    <th>Género</th> <!-- Encabezado de la columna "Género" -->
+                    <th>Equipo Local</th> <!-- Encabezado de la columna "Equipo Local" -->
+                    <th>Equipo Visitante</th> <!-- Encabezado de la columna "Equipo Visitante" -->
+                </tr>
+            </table>
+        </main>
+    </div>
+    
+    <script>
+        // Realiza una solicitud para obtener los partidos programados desde matches.php
+        fetch('matches.php')
+            .then(response => response.json()) // Convierte la respuesta a formato JSON
+            .then(data => {
+                const table = document.getElementById('matchesTable'); // Obtiene la tabla por su ID
+                data.forEach(match => { // Recorre cada partido en los datos
+                    const row = table.insertRow(); // Inserta una nueva fila en la tabla
+                    row.insertCell(0).textContent = match.lugar; // Inserta el lugar del partido
+                    row.insertCell(1).textContent = match.fecha; // Inserta la fecha del partido
+                    row.insertCell(2).textContent = match.hora; // Inserta la hora del partido
+                    row.insertCell(3).textContent = match.categoria; // Inserta la categoría del partido
+                    row.insertCell(4).textContent = match.genero; // Inserta el género del partido
+                    row.insertCell(5).textContent = match.equipo_local; // Inserta el equipo local
+                    row.insertCell(6).textContent = match.equipo_visitante; // Inserta el equipo visitante
+                });
+            });
+    </script>
+</body>
+</html>

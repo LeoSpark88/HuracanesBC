@@ -1,0 +1,206 @@
+body {
+    font-family: Arial, sans-serif; /* Tipo de fuente del cuerpo */
+    line-height: 1.6; /* Altura de línea para mejorar la legibilidad */
+    margin: 0; /* Eliminar márgenes por defecto */
+    padding: 0; /* Eliminar relleno por defecto */
+    background-color: #f4f4f4; /* Color de fondo de la página */
+}
+
+.container {
+    width: 80%; /* Ancho del contenedor principal */
+    margin: auto; /* Centrar el contenedor */
+    overflow: hidden; /* Evitar que el contenido sobresalga del contenedor */
+    padding: 20px; /* Espaciado interno del contenedor */
+}
+
+header {
+    background: #35424a; /* Color de fondo del encabezado */
+    color: #ffffff; /* Color del texto en el encabezado */
+    padding-top: 30px; /* Espaciado superior del encabezado */
+    min-height: 70px; /* Altura mínima del encabezado */
+    border-bottom: #e8491d 3px solid; /* Borde inferior del encabezado */
+}
+
+header h1 {
+    margin: 0; /* Eliminar márgenes del título */
+    text-align: center; /* Centrar el texto del título */
+}
+
+nav {
+    background: #2A2B32; /* Color de fondo del menú */
+    color: #ffffff; /* Color del texto en el menú */
+}
+
+nav ul {
+    padding: 0; /* Eliminar relleno del menú */
+    list-style: none; /* Eliminar estilos de lista */
+}
+
+nav li {
+    display: inline; /* Mostrar elementos de la lista en línea */
+    padding: 0 20px; /* Espaciado horizontal entre elementos de menú */
+}
+
+nav a {
+    color: #ffffff; /* Color del texto de los enlaces */
+    text-decoration: none; /* Eliminar subrayado de los enlaces */
+    font-size: 18px; /* Tamaño de fuente de los enlaces */
+}
+
+main {
+    padding: 20px 0; /* Espaciado vertical en el contenido principal */
+}
+
+table {
+    width: 100%; /* Ancho de la tabla al 100% del contenedor */
+    border-collapse: collapse; /* Colapsar bordes para unificar */
+    margin-top: 20px; /* Espaciado superior de la tabla */
+}
+
+table, th, td {
+    border: 1px solid #000000; /* Color de borde negro para la tabla y celdas */
+}
+
+th, td {
+    text-align: left; /* Alinear texto a la izquierda */
+    padding: 12px; /* Espaciado interno de las celdas */
+}
+
+th {
+    background-color: #35424a; /* Color de fondo de los encabezados */
+    color: rgb(255, 255, 255); /* Color del texto en los encabezados */
+}
+
+td {
+    color: #000000; /* Color del texto dentro de las celdas (td) */
+}
+
+tr:nth-child(even) {
+    background-color: #e7f3ff; /* Color de fondo para filas pares */
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff; /* Color de fondo para filas impares */
+}
+
+form {
+    background: #fff; /* Color de fondo del formulario */
+    padding: 20px; /* Espaciado interno del formulario */
+    margin-top: 20px; /* Espaciado superior del formulario */
+    border-radius: 5px; /* Bordes redondeados para el formulario */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para el formulario */
+}
+
+input[type="text"], input[type="email"], input[type="number"], input[type="date"], input[type="time"], select {
+    width: 100%; /* Ancho de los inputs al 100% del contenedor */
+    padding: 10px; /* Espaciado interno de los inputs */
+    margin: 5px 0 20px 0; /* Márgenes de los inputs */
+    display: inline-block; /* Mostrar como bloque en línea */
+    border: 1px solid #1668ff; /* Color de borde azul para los inputs */
+    box-sizing: border-box; /* Incluir el padding en el cálculo del ancho */
+    border-radius: 4px; /* Bordes redondeados para los inputs */
+}
+
+input[type="submit"] {
+    background-color: #4CAF50; /* Color de fondo del botón */
+    color: rgb(255, 255, 255); /* Color del texto del botón */
+    padding: 14px 20px; /* Espaciado interno del botón */
+    margin: 8px 0; /* Márgenes del botón */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambiar el cursor al pasar el mouse sobre el botón */
+    width: 100%; /* Ancho del botón al 100% del contenedor */
+    border-radius: 4px; /* Bordes redondeados para el botón */
+}
+
+input[type="submit"]:hover {
+    opacity: 0.8; /* Efecto hover para el botón */
+}
+
+.container {
+    display: flex; /* Usar flexbox para el contenedor */
+    height: auto; /* Cambiar a auto para que se ajuste al contenido */
+}
+
+
+nav {
+    width: 260px; /* Ancho del menú de navegación */
+    background-color: #202123; /* Color de fondo del menú */
+    color: white; /* Color del texto en el menú */
+    padding: 10px; /* Espaciado interno del menú */
+    display: flex; /* Usar flexbox para el menú */
+    flex-direction: column; /* Disposición en columna */
+    justify-content: space-between; /* Espaciado entre elementos en el menú */
+}
+
+nav ul {
+    list-style-type: none; /* Eliminar estilo de lista */
+    padding: 0; /* Eliminar relleno */
+    margin: 0; /* Eliminar márgenes */
+}
+
+nav ul:first-child {
+    flex-grow: 1; /* Permitir que la primera lista crezca para llenar el espacio disponible */
+}
+
+nav ul li {
+    margin-bottom: 10px; /* Espaciado inferior entre elementos de la lista */
+}
+
+nav ul li a {
+    color: white; /* Color del texto de los enlaces */
+    text-decoration: none; /* Eliminar subrayado de los enlaces */
+    display: block; /* Mostrar los enlaces como bloques */
+    padding: 10px; /* Espaciado interno de los enlaces */
+    border-radius: 5px; /* Bordes redondeados para los enlaces */
+    transition: background-color 0.3s; /* Transición suave para el cambio de color de fondo */
+}
+
+nav ul li a:hover {
+    background-color: #2A2B32; /* Color de fondo al pasar el mouse sobre los enlaces */
+}
+
+main {
+    flex-grow: 1; /* Permitir que el contenido principal crezca para llenar el espacio disponible */
+    padding: 20px; /* Espaciado interno del contenido principal */
+    background-color: #343541; /* Color de fondo del contenido principal */
+    color: rgb(255, 255, 255); /* Color del texto en el contenido principal */
+}
+
+/* Estilo para el enlace de cerrar sesión */
+nav ul:last-child li a {
+    background-color: #e8491d; /* Color de fondo para el enlace de cerrar sesión */
+    padding: 10px; /* Espaciado interno del enlace de cerrar sesión */
+    border-radius: 5px; /* Bordes redondeados para el enlace de cerrar sesión */
+    text-align: center; /* Centrar el texto del enlace de cerrar sesión */
+}
+
+nav ul:last-child li a:hover {
+    background-color: #c6391a; /* Color de fondo al pasar el mouse para el enlace de cerrar sesión */
+}
+
+/* Estilo adicional para mejorar la legibilidad */
+h2 {
+    color: #ffffff; /* Color del texto de los encabezados */
+    margin-top: 20px; /* Margen superior de los encabezados */
+}
+
+p {
+    color: #ffffff; /* Color del texto de los párrafos */
+}
+
+/* Estilo para los mensajes de error o éxito */
+.message {
+    padding: 10px; /* Espaciado interno de los mensajes */
+    margin: 10px 0; /* Márgenes verticales de los mensajes */
+    border-radius: 5px; /* Bordes redondeados para los mensajes */
+}
+
+.success {
+    background-color: #d4edda; /* Color de fondo para mensajes de éxito */
+    color: #155724; /* Color del texto para mensajes de éxito */
+}
+
+.error {
+    background-color: #f8d7da; /* Color de fondo para mensajes de error */
+    color: #721c24; /* Color del texto para mensajes de error */
+}

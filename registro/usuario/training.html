@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuración de la vista para dispositivos móviles -->
+    <title>Gestión de Entrenamientos - Gestor de Baloncesto</title> <!-- Título de la página -->
+    <link rel="stylesheet" href="../horario/stayle2.css"> <!-- Enlace al archivo de estilo CSS -->
+</head>
+<body>
+    <div class="container"> <!-- Contenedor principal -->
+        <nav>
+            <ul>
+                <li><a href="index.php">Inicio</a></li> <!-- Enlace a la página de inicio -->
+                <li><a href="users.php">Mi Perfil</a></li> <!-- Enlace a la página de perfil del usuario -->
+                <li><a href="training.html">Entrenamientos</a></li> <!-- Enlace a la página de entrenamientos -->
+                <li><a href="matches.html">Partidos</a></li> <!-- Enlace a la página de partidos -->
+            </ul>
+            <ul>
+                <li><a href="../Registro/logout.php">Cerrar sesión</a></li> <!-- Enlace para cerrar sesión -->
+            </ul>
+        </nav>
+        <main>
+            <h2>Entrenamientos Programados</h2> <!-- Título principal de la sección -->
+            <table id="trainingsTable"> <!-- Tabla para mostrar los entrenamientos -->
+                <tr>
+                    <th>Lugar</th> <!-- Encabezado de columna: Lugar -->
+                    <th>Fecha</th> <!-- Encabezado de columna: Fecha -->
+                    <th>Hora</th> <!-- Encabezado de columna: Hora -->
+                    <th>Categoría</th> <!-- Encabezado de columna: Categoría -->
+                </tr>
+            </table>
+        </main>
+    </div>
+    <script>
+        // Realiza una solicitud para obtener los datos de los entrenamientos
+        fetch('training.php')
+            .then(response => response.json()) // Convierte la respuesta a formato JSON
+            .then(data => {
+                const table = document.getElementById('trainingsTable'); // Selecciona la tabla donde se mostrarán los datos
+                data.forEach(training => { // Itera sobre cada entrenamiento recibido
+                    const row = table.insertRow(); // Inserta una nueva fila en la tabla
+                    row.insertCell(0).textContent = training.lugar; // Inserta el lugar en la primera celda
+                    row.insertCell(1).textContent = training.fecha; // Inserta la fecha en la segunda celda
+                    row.insertCell(2).textContent = training.hora; // Inserta la hora en la tercera celda
+                    row.insertCell(3).textContent = training.categoria; // Inserta la categoría en la cuarta celda
+                });
+            });
+    </script>
+</body>
+</html>

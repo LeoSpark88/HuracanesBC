@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura la vista para dispositivos móviles -->
+    <title>Gestión de Entrenamientos - Gestor de Baloncesto</title> <!-- Título de la página -->
+    <link rel="stylesheet" href="../horario/stayle2.css"> <!-- Enlace a la hoja de estilos CSS -->
+</head>
+<body>
+    <div class="container"> <!-- Contenedor principal -->
+        <nav> <!-- Navegación principal -->
+            <ul>
+                <li><a href="index.php">Inicio</a></li> <!-- Enlace a la página de inicio -->
+                <li><a href="users.html">Usuarios</a></li> <!-- Enlace a la página de usuarios -->
+                <li><a href="training.html">Entrenamientos</a></li> <!-- Enlace a la página de entrenamientos -->
+                <li><a href="matches.html">Partidos</a></li> <!-- Enlace a la página de partidos -->
+            </ul>
+            <ul>
+                <li><a href="../Registro/logout.php">Cerrar sesión</a></li> <!-- Enlace para cerrar sesión -->
+            </ul>
+        </nav>
+        <main> <!-- Sección principal del contenido -->
+            <h2>Programar Nuevo Entrenamiento</h2> <!-- Encabezado para el formulario -->
+            <form action="training.php" method="post"> <!-- Formulario para programar entrenamientos -->
+                <input type="text" name="lugar" placeholder="Lugar" required> <!-- Campo de entrada para el lugar -->
+                <input type="date" name="fecha" required> <!-- Campo de entrada para la fecha -->
+                <input type="time" name="hora" required> <!-- Campo de entrada para la hora -->
+                <select name="categoria" required> <!-- Selector para la categoría -->
+                    <option value="">Selecciona categoría</option> <!-- Opción por defecto -->
+                    <option value="Infantil">Infantil</option> <!-- Opción de categoría infantil -->
+                    <option value="Juvenil">Juvenil</option> <!-- Opción de categoría juvenil -->
+                    <option value="Senior">Senior</option> <!-- Opción de categoría senior -->
+                </select>
+                <input type="submit" name="create" value="Programar Entrenamiento"> <!-- Botón para enviar el formulario -->
+            </form>
+
+            <h2>Entrenamientos Programados</h2> <!-- Encabezado para la tabla de entrenamientos -->
+            <table id="trainingsTable"> <!-- Tabla para mostrar los entrenamientos programados -->
+                <tr>
+                    <th>Lugar</th> <!-- Encabezado de la columna Lugar -->
+                    <th>Fecha</th> <!-- Encabezado de la columna Fecha -->
+                    <th>Hora</th> <!-- Encabezado de la columna Hora -->
+                    <th>Categoría</th> <!-- Encabezado de la columna Categoría -->
+                    <th>Acciones</th> <!-- Encabezado de la columna Acciones -->
+                </tr>
+            </table>
+        </main>
+    </div>
+    <script>
+        // Fetch para obtener los entrenamientos programados desde el servidor
+        fetch('training.php')
+            .then(response => response.json()) // Convertir la respuesta a formato JSON
+            .then(data => {
+                const table = document.getElementById('trainingsTable'); // Obtener la tabla de entrenamientos
+                data.forEach(training => { // Iterar sobre cada entrenamiento recibido
+                    const row = table.insertRow(); // Insertar una nueva fila en la tabla
+                    row.insertCell(0).textContent = training.lugar; // Colocar el lugar en la celda
+                    row.insertCell(1).textContent = training.fecha; // Colocar la fecha en la celda
+                    row.insertCell(2).textContent = training.hora; // Colocar la hora en la celda
+                    row.insertCell(3).textContent = training.categoria; // Colocar la categoría en la celda
+    
+                    const actionsCell = row.insertCell(4); // Crear celda para las acciones
+                    
+                    // Botón de eliminar
+                    const deleteLink = document.createElement('a'); // Crear un nuevo enlace
+                    deleteLink.href = `training.php?delete=${training.id}`; // Configurar la URL de eliminación
+                    deleteLink.textContent = 'Eliminar'; // Texto del enlace
+                    deleteLink.onclick = function(event) { // Función al hacer clic
+                        event.preventDefault(); // Prevenir la acción por defecto del enlace
+                        const confirmDelete = confirm("¿Estás seguro de que deseas eliminar este entrenamiento?"); // Confirmación de eliminación
+                        if (confirmDelete) {
+                            window.location.href = deleteLink.href; // Redirigir a la URL de eliminación si se confirma
+                        }
+                    };
+                    actionsCell.appendChild(deleteLink); // Añadir el enlace de eliminación a la celda
+    
+                    // Espacio entre botones
+                    actionsCell.appendChild(document.createTextNode(' | ')); // Añadir un separador
+    
+                    // Botón de editar
+                    const editLink = document.createElement('a'); // Crear un nuevo enlace para editar
+                    editLink.href = `edit_training.html?id=${training.id}`; // Redirigir a una página de edición
+                    editLink.textContent = 'Editar'; // Texto del enlace de edición
+                    actionsCell.appendChild(editLink); // Añadir el enlace de edición a la celda
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error); // Manejar errores en la llamada fetch
+            });
+    </script>
+</body>
+</html>

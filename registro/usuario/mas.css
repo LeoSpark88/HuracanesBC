@@ -1,0 +1,157 @@
+body {
+    font-family: Arial, sans-serif; /* Establece la fuente del texto */
+    margin: 0; /* Elimina el margen por defecto del navegador */
+    padding: 0; /* Elimina el padding por defecto del navegador */
+    background-color: #2f2f3f; /* Color de fondo de la página */
+    color: #ffffff; /* Color del texto */
+}
+
+.container {
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 20px auto; /* Centra el contenedor con un margen superior e inferior */
+    padding: 20px; /* Espaciado interno del contenedor */
+    background-color: #3e3e50; /* Color de fondo del contenedor */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+nav {
+    width: 220px; /* Ancho de la barra de navegación */
+    background-color: #1d1d1d; /* Color de fondo de la navegación */
+    color: #ffffff; /* Color del texto en la navegación */
+    height: 100vh; /* Altura completa de la ventana del navegador */
+    position: fixed; /* Fija la navegación en la esquina izquierda */
+    left: 0; /* Posición desde la izquierda */
+    top: 0; /* Posición desde la parte superior */
+    display: flex; /* Usar flexbox para organizar elementos */
+    flex-direction: column; /* Disposición vertical de los elementos */
+    padding-top: 20px; /* Espaciado superior dentro de la navegación */
+}
+
+nav ul {
+    list-style: none; /* Elimina los estilos de lista por defecto */
+    padding: 0; /* Elimina el padding por defecto */
+    margin: 0; /* Elimina el margen por defecto */
+    flex-grow: 1; /* Permite que la lista crezca para ocupar espacio disponible */
+}
+
+nav ul li {
+    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+}
+
+nav ul li a {
+    color: #ffffff; /* Color del texto del enlace */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    display: block; /* Hace que el enlace ocupe todo el espacio disponible */
+    padding: 12px 20px; /* Espaciado interno del enlace */
+    font-size: 16px; /* Tamaño de fuente del enlace */
+}
+
+nav ul li a:hover {
+    background-color: #2e2e2e; /* Color de fondo al pasar el ratón sobre el enlace */
+}
+
+nav .logout-button {
+    background-color: #ff5722; /* Color de fondo del botón de cerrar sesión */
+    color: #ffffff; /* Color del texto del botón */
+    text-align: center; /* Centra el texto en el botón */
+    padding: 10px; /* Espaciado interno del botón */
+    margin: 20px; /* Margen alrededor del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-weight: bold; /* Texto en negrita */
+    text-decoration: none; /* Elimina el subrayado del texto */
+}
+
+nav .logout-button:hover {
+    background-color: #e64a19; /* Color de fondo al pasar el ratón sobre el botón de cerrar sesión */
+}
+
+main {
+    margin-left: 240px; /* Espacio a la izquierda para no cubrir la barra de navegación */
+    padding: 40px; /* Espaciado interno del contenido principal */
+}
+
+header {
+    background: #2b3d4f; /* Color de fondo del encabezado */
+    padding: 20px; /* Espaciado interno del encabezado */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Centra el texto en el encabezado */
+}
+
+header h1 {
+    color: #ffffff; /* Color del texto del encabezado */
+    font-size: 24px; /* Tamaño de fuente del encabezado */
+}
+
+#userInfo {
+    background-color: #2b3d4f; /* Color de fondo de la sección de información del usuario */
+    padding: 15px; /* Espaciado interno de la sección */
+    border-radius: 8px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Espacio inferior de la sección */
+}
+
+#userInfo p {
+    margin: 10px 0; /* Margen superior e inferior de los párrafos */
+    color: #ffffff; /* Color del texto */
+}
+
+#editButton {
+    background-color: #ff5722; /* Color de fondo del botón de editar */
+    color: #ffffff; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    font-size: 16px; /* Tamaño de fuente del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    margin-top: 10px; /* Margen superior del botón */
+}
+
+#editButton:hover {
+    background-color: #e64a19; /* Color de fondo al pasar el ratón sobre el botón de editar */
+}
+
+#editForm {
+    background-color: #2b3d4f; /* Color de fondo del formulario de edición */
+    padding: 15px; /* Espaciado interno del formulario */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+#editForm label {
+    display: block; /* Hace que la etiqueta ocupe todo el ancho disponible */
+    color: #ffffff; /* Color del texto de la etiqueta */
+    margin-top: 10px; /* Margen superior de la etiqueta */
+}
+
+#editForm input,
+#editForm select {
+    width: 100%; /* Ancho completo de los campos de entrada y selección */
+    padding: 8px; /* Espaciado interno de los campos */
+    margin-top: 5px; /* Margen superior de los campos */
+    border-radius: 4px; /* Bordes redondeados de los campos */
+    border: none; /* Sin borde */
+}
+
+#saveButton,
+#cancelButton {
+    background-color: #ff5722; /* Color de fondo para los botones de guardar y cancelar */
+    color: #ffffff; /* Color del texto de los botones */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno de los botones */
+    font-size: 16px; /* Tamaño de fuente de los botones */
+    border-radius: 5px; /* Bordes redondeados de los botones */
+    cursor: pointer; /* Cambia el cursor al pasar sobre los botones */
+    margin-top: 10px; /* Margen superior de los botones */
+}
+
+#cancelButton {
+    background-color: #777777; /* Color de fondo del botón de cancelar */
+}
+
+#saveButton:hover {
+    background-color: #e64a19; /* Color de fondo al pasar el ratón sobre el botón de guardar */
+}
+
+#cancelButton:hover {
+    background-color: #666666; /* Color de fondo al pasar el ratón sobre el botón de cancelar */
+}
+

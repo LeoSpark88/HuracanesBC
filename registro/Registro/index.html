@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Define el conjunto de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura la vista para dispositivos móviles -->
+    <title>Login y Register - MagtimusPro</title> <!-- Título de la página -->
+    
+    <!-- Enlace a la fuente Roboto desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- Enlace a la hoja de estilos CSS -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <main>
+        <div class="contenedor__todo"> <!-- Contenedor principal que agrupa todo el contenido -->
+            <div class="caja__trasera"> <!-- Contenedor para las cajas traseras -->
+                <div class="caja__trasera-login"> <!-- Caja para el inicio de sesión -->
+                    <h3>¿Ya tienes una cuenta?</h3>
+                    <p>Inicia sesión para entrar en la página</p>
+                    <button id="btn__iniciar-sesion">Iniciar Sesión</button> <!-- Botón para iniciar sesión -->
+                </div>
+                <div class="caja__trasera-register"> <!-- Caja para el registro -->
+                    <h3>¿Aún no tienes una cuenta?</h3>
+                    <p>Regístrate para que puedas iniciar sesión</p>
+                    <button id="btn__registrarse">Regístrarse</button> <!-- Botón para registrarse -->
+                </div>
+            </div>
+
+            <!-- Formulario de Login y Registro -->
+            <div class="contenedor__login-register">
+                <!-- Formulario de Login -->
+                <form action="login.php" method="POST" class="formulario__login">
+                    <h2>Iniciar Sesión</h2> <!-- Título del formulario de inicio de sesión -->
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="juan@ejemplo.com" required> <!-- Campo para el correo electrónico -->
+
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" required> <!-- Campo para la contraseña -->
+
+                    <button type="submit">Entrar</button> <!-- Botón para enviar el formulario -->
+                </form>
+
+                <!-- Formulario de Registro -->
+                <form action="registro.php" method="POST" class="formulario__register">
+                    <h2>Regístrarse</h2> <!-- Título del formulario de registro -->
+                    <label for="fullName">Nombre completo</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Juan Pérez" required> <!-- Campo para el nombre completo -->
+                    
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="juan@ejemplo.com" required> <!-- Campo para el correo electrónico -->
+
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" required> <!-- Campo para la contraseña -->
+                    <br><br>
+
+                    <label for="position">Posición</label>
+                    <select id="position" name="position" required> <!-- Selección de posición -->
+                        <option value="">Selecciona tu posición</option>
+                        <option value="base">Base</option>
+                        <option value="escolta">Escolta</option>
+                        <option value="alero">Alero</option>
+                        <option value="ala-pivot">Ala-Pívot</option>
+                        <option value="pivot">Pívot</option>
+                    </select>
+                    <br><br>
+
+                    <label for="height">Altura (m)</label>
+                    <input type="text" id="height" name="height" placeholder="1,80" required pattern="^\d{1,2},\d{2}$" title="Por favor, ingresa la altura en formato 1,80"> <!-- Campo para la altura con validación -->
+
+                    <button type="submit">Registrarse</button> <!-- Botón para enviar el formulario de registro -->
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script> <!-- Enlace al archivo JavaScript -->
+</body>
+</html>

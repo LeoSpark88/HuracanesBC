@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres del documento como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura la vista para dispositivos móviles -->
+    <title>Editar Partido - Gestor de Baloncesto</title> <!-- Título de la página que se muestra en la pestaña del navegador -->
+    <link rel="stylesheet" href="../horario/stayle2.css"> <!-- Enlaza el archivo CSS para estilos -->
+</head>
+<body>
+    <div class="container"> <!-- Contenedor principal de la página -->
+        <nav> <!-- Barra de navegación -->
+            <ul>
+                <li><a href="index.php">Inicio</a></li> <!-- Enlace a la página de inicio -->
+                <li><a href="users.html">Usuarios</a></li> <!-- Enlace a la página de usuarios -->
+                <li><a href="training.html">Entrenamientos</a></li> <!-- Enlace a la página de entrenamientos -->
+                <li><a href="matches.html">Partidos</a></li> <!-- Enlace a la página de partidos -->
+            </ul>
+            <ul>
+                <li><a href="../Registro/logout.php">Cerrar sesión</a></li> <!-- Enlace para cerrar sesión -->
+            </ul>
+        </nav>
+        <main> <!-- Sección principal de contenido -->
+            <h2>Editar Partido</h2> <!-- Título de la sección -->
+            <form action="update_match.php" method="post"> <!-- Formulario para actualizar un partido -->
+                <input type="hidden" name="id" id="matchId" value=""> <!-- Campo oculto para almacenar el ID del partido -->
+                <input type="text" name="lugar" placeholder="Lugar" required> <!-- Campo para ingresar el lugar del partido -->
+                <input type="date" name="fecha" required> <!-- Campo para seleccionar la fecha del partido -->
+                <input type="time" name="hora" required> <!-- Campo para seleccionar la hora del partido -->
+                <select name="categoria" required> <!-- Selección de categoría del partido -->
+                    <option value="">Selecciona categoría</option> <!-- Opción por defecto -->
+                    <option value="Infantil">Infantil</option> <!-- Opción Infantil -->
+                    <option value="Juvenil">Juvenil</option> <!-- Opción Juvenil -->
+                    <option value="Senior">Senior</option> <!-- Opción Senior -->
+                </select>
+                <select name="genero" required> <!-- Selección de género del partido -->
+                    <option value="">Selecciona género</option> <!-- Opción por defecto -->
+                    <option value="Femenino">Femenino</option> <!-- Opción Femenino -->
+                    <option value="Masculino">Masculino</option> <!-- Opción Masculino -->
+                </select>
+                <input type="text" name="equipo_local" placeholder="Equipo Local" required> <!-- Campo para el equipo local -->
+                <input type="text" name="equipo_visitante" placeholder="Equipo Visitante" required> <!-- Campo para el equipo visitante -->
+                <input type="submit" value="Actualizar Partido"> <!-- Botón para enviar el formulario -->
+            </form>
+        </main>
+    </div>
+    <script>
+        // Obtener el ID del partido de la URL
+        const urlParams = new URLSearchParams(window.location.search); // Crea un objeto con los parámetros de la URL
+        const matchId = urlParams.get('id'); // Obtiene el ID del partido de los parámetros de la URL
+
+        // Hacer una solicitud para obtener los datos del partido
+        fetch(`get_match.php?id=${matchId}`) // Realiza una solicitud para obtener los datos del partido
+            .then(response => response.json()) // Convierte la respuesta en formato JSON
+            .then(data => { // Maneja los datos recibidos
+                document.getElementById('matchId').value = data.id; // Establece el ID del partido en el campo oculto
+                document.querySelector('input[name="lugar"]').value = data.lugar; // Rellena el campo de lugar
+                document.querySelector('input[name="fecha"]').value = data.fecha; // Rellena el campo de fecha
+                document.querySelector('input[name="hora"]').value = data.hora; // Rellena el campo de hora
+                document.querySelector('select[name="categoria"]').value = data.categoria; // Rellena el campo de categoría
+                document.querySelector('select[name="genero"]').value = data.genero; // Rellena el campo de género
+                document.querySelector('input[name="equipo_local"]').value = data.equipo_local; // Rellena el campo de equipo local
+                document.querySelector('input[name="equipo_visitante"]').value = data.equipo_visitante; // Rellena el campo de equipo visitante
+            })
+            .catch(error => console.error('Error:', error)); // Manejo de errores en la solicitud
+    </script>
+</body>
+</html>
